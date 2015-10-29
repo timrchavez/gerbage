@@ -1,0 +1,10 @@
+ecdsa==0.13
+gevent==1.0.2
+greenlet==0.4.9
+paramiko==1.15.3
+pbr==0.11.0
+pycrypto==2.6.1
+pyrc==0.6.7
+PyYAML==3.11
+wheel==0.24.0
+zoidberg==0.2

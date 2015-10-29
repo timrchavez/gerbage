@@ -1,0 +1,11 @@
+- gerrits:
+  - master:
+      host: review.openstack.org
+      key_filename: /home/tchavez/.ssh/id_rsa.pub
+      username: timrchavez
+      project-pattern: .*
+      events:
+      - type: patchset-created
+        action: gerbage.CapturePatchsetCreated
+        target: master
+- plugins: ['gerbage.zoidberg']
