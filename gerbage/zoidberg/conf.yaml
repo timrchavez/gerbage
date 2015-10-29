@@ -9,7 +9,7 @@
         action: gerbage.CapturePatchsetCreated
         target: master
       events:
-      - type: patchset-created
+      - type: change-merged
         action: gerbage.CaptureChangeMerged
         target: master
 
