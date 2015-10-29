@@ -1,8 +1,10 @@
 import gevent
 import logging
 import sys
+import time
 
-from gevent import queue, monkey, socket
+from gevent import monkey, queue, socket
+
 monkey.patch_all()
 
 IRC_CONNECTED = "001"
@@ -53,6 +55,7 @@ class GerritBot(object):
                     if channel not in self.channels:
                         self.channels.append(channel)
                         self.do_join(channel)
+                    time.sleep(2)
                     if event_type == "patchset-created":
                         self._handle_patchset_created_event(channel, event_data)
                     elif event_type == "change-merged":
