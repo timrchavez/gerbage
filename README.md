@@ -31,9 +31,11 @@ Anyway.
 How To Run
 ----------
 
- * ./setup.sh
+ * sudo apt-get install virtualenv python-dev build-essential
  * source venv/bin/activate
  * Edit gerbage/settings.py to post at IRC server
+ * Edit gerbage/zoidberg/conf.yaml to point at your Gerrit SSH key, etc
+ * ./setup.sh
  * ./start.sh
 
 Supported Events
