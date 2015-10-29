@@ -73,7 +73,7 @@ class GerritBot(object):
             "url: {3}".format(
                 change.subject,
                 change.number,
-                patchset.revision,
+                patchset.number,
                 change.url
             )
         )
@@ -87,7 +87,7 @@ class GerritBot(object):
             "url: {3}".format(
                 change.subject,
                 change.number,
-                patchset.revision,
+                patchset.number,
                 change.url
             )
         )

@@ -15,18 +15,19 @@ So.  As an illustration Gerrit events for 'openstack/nova' will be relayed to
 the '#openstack/nova' IRC channel and the nick of the bot that relays an event
 will be the Gerrit username of the uploader, approver, etc of that event.  And
 it gets better!  Depending on the IRC server you're running, you can take this
-IRC-as-your-UI abstraction a bit further.
+abstraction a bit further.
 
 For example, if you don't want to receive Gerrit event notifications for a
 particular person in a project (why you'd want to do this, I do not know, but
-maybe you do) you can /mode +q them.  And if log your channels, you'll also
-have a nice greppable log of Gerrit events that happen in the projects you
-care about that are not stored in e-mail.  Gross.  And because there's no
-chat noise in these channels since that's not their intended purpose, you
-can get a nice glimpse and what transpired that day or while you were
-away.
+maybe you do) you can /mode +q them to silence those events.  Also in addition
+to getting greppable logs (which you'd get anyway with a bot siting on one
+channel relaying events for all projects), I find you're getting a nice,
+digestable summary of activity since there is no conversation happening
+in the project channels.  You're also in control of what data gets relayed.
+That's nice too!
 
-Anyway.
+Anyway.  This is still a pretty bad idea, but my trial run of it is working
+out nicely.
 
 How To Run
 ----------
