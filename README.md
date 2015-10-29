@@ -7,16 +7,24 @@ an interface and people would probably be annoyed and / or confused if you
 tried using this on a public network.
 
 So is Gerbage a bot?  Actually it's worse than that.  It's a Gerrit event
-listener that spawns many bots.  Gerrit projects because their own IRC
-channels.  So Gerrit events for 'openstack/nova' will be relayed to
-'#openstack/nova'.  The nick of the bot that relays the event will be the
-Gerrit username of the uploader, approver, etc.  Depending on the IRC server
-you're running you can take this IRC-as-your-UI abstraction a bit further.
+listener that spawns many bots.  Gerrit projects become their own IRC
+channels and Gerrit submitters, approvers, etc become IRC users that
+tell you when they do things in Gerrit.
+
+So.  As an illustration Gerrit events for 'openstack/nova' will be relayed to
+the '#openstack/nova' IRC channel and the nick of the bot that relays an event
+will be the Gerrit username of the uploader, approver, etc of that event.  And
+it gets better!  Depending on the IRC server you're running, you can take this
+IRC-as-your-UI abstraction a bit further.
+
 For example, if you don't want to receive Gerrit event notifications for a
-particular person in a project (why you'd want to do this, I do not know..)
-you can /mode +q them.  You'll also have a nice log of Gerrit events in your
-IRC logs separated by channel/project which should give you a nice summary
-of the day or give you a way to quickly grep changes.
+particular person in a project (why you'd want to do this, I do not know, but
+maybe you do) you can /mode +q them.  And if log your channels, you'll also
+have a nice greppable log of Gerrit events that happen in the projects you
+care about that are not stored in e-mail.  Gross.  And because there's no
+chat noise in these channels since that's not their intended purpose, you
+can get a nice glimpse and what transpired that day or while you were
+away.
 
 Anyway.
 
