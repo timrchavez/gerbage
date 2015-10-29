@@ -33,7 +33,7 @@ How To Run
 
  * ./setup.sh
  * source venv/bin/activate
- * Edit code to point at IRC server (see Todo)
+ * Edit gerbage/settings.py to post at IRC server
  * ./start.sh
 
 Supported Events
@@ -45,7 +45,6 @@ Supported Events
 Todo
 ----
 
- * Add a config file mechanism to load stuff like server settings form disk
  * Add support for more Gerrit events
 
 Notes on IRC Server
