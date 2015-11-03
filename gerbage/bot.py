@@ -69,7 +69,7 @@ class GerritBot(object):
         patchset = data.patchSet
         self.do_privmsg(
             channel,
-            "[patchset-created] subject: {0}, change: {1}, revision: {2}, "
+            "[patchset-created] subject: {0}, change: {1}, number: {2}, "
             "url: {3}".format(
                 change.subject,
                 change.number,
@@ -83,7 +83,7 @@ class GerritBot(object):
         patchset = data.patchSet
         self.do_privmsg(
             channel,
-            "[change-merged] subject: {0}, change: {1}, revision: {2}, "
+            "[change-merged] subject: {0}, change: {1}, number: {2}, "
             "url: {3}".format(
                 change.subject,
                 change.number,

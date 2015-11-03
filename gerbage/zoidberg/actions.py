@@ -9,28 +9,31 @@ from gerbage.settings import IRC_HOST, IRC_PORT
 
 monkey.patch_all()
 
+def get_nickname(username):
+    return username.replace(".", "_")
+
 
 @actions.ActionRegistry.register("gerbage.CapturePatchsetCreated")
 class CapturePatchsetCreatedAction(actions.Action):
     def _do_run(self, event, cfg, action_cfg, source):
         change = event.change
-        uploader = event.uploader
+        nickname = get_nickname(event.uploader.username)
         channel = "#" + change.project
 
         # FIXME: Sanitize Gerrit username for IRC nick
-        if uploader.username in event_queues:
-            event_queues[uploader.username].put(
+        if nickname in event_queues:
+            event_queues[nickname].put(
                 (channel, "patchset-created", event))
         else:
-            event_queues[uploader.username] = queue.Queue()
-            event_queues[uploader.username].put(
+            event_queues[nickname] = queue.Queue()
+            event_queues[nickname].put(
                 (channel, "patchset-created", event))
             bot = GerritBot(
-                event_queues[uploader.username],
+                event_queues[nickname],
                 host = IRC_HOST,
                 port = IRC_PORT,
-                nick = uploader.username,
-                realname = uploader.name,
+                nick = nickname,
+                realname = event.uploader.name,
                 channels = [channel]
             )
             gevent.spawn(bot.connect)
@@ -40,23 +43,23 @@ class CapturePatchsetCreatedAction(actions.Action):
 class CaptureChangeMergedAction(actions.Action):
     def  _do_run(self, event, cfg, action_cfg, source):
         change = event.change
-        submitter = event.submitter
+        submitter = get_nickaname(event.submitter.username)
         channel = "#" + change.project
 
         # FIXME: Sanitize Gerrit username for IRC nick
-        if submitter.username in event_queues:
-            event_queues[submitter.username].put(
+        if nickname in event_queues:
+            event_queues[nickname].put(
                 (channel, "change-merged", event))
         else:
-            event_queues[submitter.username] = queue.Queue()
-            event_queues[submitter.username].put(
+            event_queues[nickname] = queue.Queue()
+            event_queues[nickname].put(
                 (channel, "change-merged", event))
             bot = GerritBot(
-                event_queues[submitter.username],
+                event_queues[nickname],
                 host = IRC_HOST,
                 port = IRC_PORT,
-                nick = submitter.username,
-                realname = submitter.name,
+                nick = nickname,
+                realname = event.submitter.name,
                 channels = [channel]
             )
             gevent.spawn(bot.connect)
