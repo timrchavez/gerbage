@@ -43,7 +43,7 @@ class CapturePatchsetCreatedAction(actions.Action):
 class CaptureChangeMergedAction(actions.Action):
     def  _do_run(self, event, cfg, action_cfg, source):
         change = event.change
-        submitter = get_nickaname(event.submitter.username)
+        submitter = get_nickname(event.submitter.username)
         channel = "#" + change.project
 
         # FIXME: Sanitize Gerrit username for IRC nick
