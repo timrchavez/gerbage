@@ -60,6 +60,7 @@ class GerritBot(object):
                         self._handle_patchset_created_event(channel, event_data)
                     elif event_type == "change-merged":
                         self._handle_change_merged_event(channel, event_data)
+                gevent.sleep(0)
         except Exception as e:
             logging.error(str(e))
             sys.exit(1)
@@ -104,6 +105,7 @@ class GerritBot(object):
                     self.do_nick(self.nick + "_")
                 elif command == IRC_PING:
                     self.do_pong(args)
+                gevent.sleep(0)
         except Exception as e:
             logging.error(str(e))
             sys.exit(1)
